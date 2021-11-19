@@ -98,5 +98,8 @@ class Ccompass {
 
     this.ctx.fillRect(0, 0, this.width, this.height)
   }
+  clear() {
+    this.ctx.clearRect(0, 0, this.width, this.height)
+  }
 }
 export default Ccompass
