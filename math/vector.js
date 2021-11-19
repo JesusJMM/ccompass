@@ -5,7 +5,7 @@ export default class Vector {
     this.x = x
     this.y = y
   }
-  rotate(angle){
+  rotate(angle) {
     const x = Math.cos(angle) * this.x + Math.sin(angle) * this.y
     const y = Math.cos(angle) * this.y - Math.sin(angle) * this.x
     return new Vector(x, y)
