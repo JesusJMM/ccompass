@@ -34,5 +34,13 @@ export default class Vector {
     this.x = x
     this.y = y
   }
-
+  add(x, y) {
+    if (x instanceof Vector) {
+      this.x += x.x
+      this.y += x.y
+    } else {
+      this.x += x
+      this.y += y
+    }
+  }
 }
