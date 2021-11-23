@@ -37,7 +37,7 @@ Todos
 -------------------
 
 ### Vector Method
-  - [ ] Set 
+  - [x] Set 
   - [ ] Add
   - [ ] Subtract
   - [ ] Set Magnitude

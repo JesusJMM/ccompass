@@ -25,11 +25,14 @@ export default class Vector {
   }
   get angle() {
     let angle = Math.atan2(this.y, this.x)
-    // if (intRange) {
     if (angle < 0) {
       angle = (Math.PI - (angle * -1)) + Math.PI
     }
-    // }
     return angle
   }
+  set(x, y) {
+    this.x = x
+    this.y = y
+  }
+
 }
