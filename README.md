@@ -46,4 +46,4 @@ Todos
 
 ### Functions to add
   - [ ] Perling noice function
-  - [ ] Lerp function
+  - [x] Lerp function

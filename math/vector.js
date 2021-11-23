@@ -57,6 +57,9 @@ export default class Vector {
     return this
   }
   setMagnitude(mg) {
-    this = this.normalized.multiply(mg)
+    const newVector = this.normalized.multiply(mg)
+    this.x = newVector.x
+    this.y = newVector.y
+    return this
   }
 }
