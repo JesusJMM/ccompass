@@ -38,9 +38,9 @@ Todos
 
 ### Vector Method
   - [x] Set 
-  - [ ] Add
-  - [ ] Subtract
-  - [ ] Set Magnitude
+  - [x] Add
+  - [x] Subtract
+  - [x] Set Magnitude
   - [ ] Multiply
   - [ ] Copy
 

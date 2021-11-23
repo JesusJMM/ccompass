@@ -51,5 +51,12 @@ export default class Vector {
       this.y -= y
     }
   }
-
+  multiply(s) {
+    this.x *= s
+    this.y *= s
+    return this
+  }
+  setMagnitude(mg) {
+    this = this.normalized.multiply(mg)
+  }
 }
