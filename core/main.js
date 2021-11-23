@@ -10,20 +10,23 @@ class Ccompass {
 
   /**
   * @argument {CanvasRenderingContext2D} ctx
+  * @argument {Number} width
+  * @argument {Number} height
   */
-  constructor(ctx) {
+  constructor(ctx, width = 100, height = 100) {
     this.ctx = ctx
+    this.ctx.canvas.width = width
+    this.ctx.canvas.height = height
     this.width = ctx.canvas.width
     this.height = ctx.canvas.height
     this.ctx.canvas.addEventListener('mousemove', (e) => {
       this.mouse.x = e.x
       this.mouse.y = e.y
     })
-    this.ctx.canvas.addEventListener('mousedown', (e) => {
+    this.ctx.canvas.addEventListener('mousedown', () => {
       this.mouse.click = true
-      console.log(e)
     })
-    this.ctx.canvas.addEventListener('mouseup', (e) => {
+    this.ctx.canvas.addEventListener('mouseup', () => {
       this.mouse.click = false
     })
   }
