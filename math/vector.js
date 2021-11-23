@@ -6,15 +6,14 @@ export default class Vector {
     this.y = y
   }
   rotate(angle) {
-    const x = Math.cos(angle) * this.x + Math.sin(angle) * this.y
-    const y = Math.cos(angle) * this.y - Math.sin(angle) * this.x
-    return new Vector(x, y)
-  }
-  add(v) {
-    return new Vector(this.x + v.x, this.y + v.y)
+    this.x = Math.cos(angle) * this.x + Math.sin(angle) * this.y
+    this.y = Math.cos(angle) * this.y - Math.sin(angle) * this.x
+    return this
   }
   invert() {
-    return new Vector(-this.x, -this.y)
+    this.x *= -1
+    this.y *= -1
+    return this
   }
   get magnitude() {
     return Math.sqrt(this.x * this.x + this.y * this.y)
@@ -43,7 +42,7 @@ export default class Vector {
       this.y += y
     }
   }
-  add(x, y) {
+  substract(x, y) {
     if (x instanceof Vector) {
       this.x -= x.x
       this.y -= x.y
@@ -52,4 +51,5 @@ export default class Vector {
       this.y -= y
     }
   }
+
 }
