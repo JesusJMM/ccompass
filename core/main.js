@@ -20,8 +20,8 @@ class Ccompass {
     this.width = ctx.canvas.width
     this.height = ctx.canvas.height
     this.ctx.canvas.addEventListener('mousemove', (e) => {
-      this.mouse.x = e.x
-      this.mouse.y = e.y
+      this.mouse.x = e.layerX
+      this.mouse.y = e.layerY
     })
     this.ctx.canvas.addEventListener('mousedown', () => {
       this.mouse.click = true

@@ -41,7 +41,7 @@ Todos
   - [x] Add
   - [x] Subtract
   - [x] Set Magnitude
-  - [ ] Multiply
+  - [x] Multiply
   - [ ] Copy
 
 ### Functions to add
