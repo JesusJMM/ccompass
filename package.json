@@ -2,7 +2,7 @@
   "name": "ccompass",
   "version": "1.0.1",
   "description": "A library for simplify the canvas api",
-  "main": "index.js",
+  "main": "lib/index.js",
   "files": [
     "lib/**"
   ],
