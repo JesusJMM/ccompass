@@ -6,15 +6,14 @@ export default class Vector {
     this.y = y
   }
   rotate(angle) {
-    const x = Math.cos(angle) * this.x + Math.sin(angle) * this.y
-    const y = Math.cos(angle) * this.y - Math.sin(angle) * this.x
-    return new Vector(x, y)
-  }
-  add(v) {
-    return new Vector(this.x + v.x, this.y + v.y)
+    this.x = Math.cos(angle) * this.x + Math.sin(angle) * this.y
+    this.y = Math.cos(angle) * this.y - Math.sin(angle) * this.x
+    return this
   }
   invert() {
-    return new Vector(-this.x, -this.y)
+    this.x *= -1
+    this.y *= -1
+    return this
   }
   get magnitude() {
     return Math.sqrt(this.x * this.x + this.y * this.y)
@@ -25,11 +24,42 @@ export default class Vector {
   }
   get angle() {
     let angle = Math.atan2(this.y, this.x)
-    // if (intRange) {
     if (angle < 0) {
       angle = (Math.PI - (angle * -1)) + Math.PI
     }
-    // }
     return angle
+  }
+  set(x, y) {
+    this.x = x
+    this.y = y
+  }
+  add(x, y) {
+    if (x instanceof Vector) {
+      this.x += x.x
+      this.y += x.y
+    } else {
+      this.x += x
+      this.y += y
+    }
+  }
+  substract(x, y) {
+    if (x instanceof Vector) {
+      this.x -= x.x
+      this.y -= x.y
+    } else {
+      this.x -= x
+      this.y -= y
+    }
+  }
+  multiply(s) {
+    this.x *= s
+    this.y *= s
+    return this
+  }
+  setMagnitude(mg) {
+    const newVector = this.normalized.multiply(mg)
+    this.x = newVector.x
+    this.y = newVector.y
+    return this
   }
 }
