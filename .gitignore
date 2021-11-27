@@ -1,3 +1,5 @@
 tester.js
 node_modules
 demos
+
+.parcel-cache
