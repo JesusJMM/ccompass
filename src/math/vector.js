@@ -62,4 +62,10 @@ export default class Vector {
     this.y = newVector.y
     return this
   }
+  dot(x, y) {
+    if (x instanceof Vector) {
+      return this.x * x.x + this.y * x.y
+    }
+    return this.x * x + this.y * y
+  }
 }
