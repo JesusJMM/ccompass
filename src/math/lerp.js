@@ -1,3 +1,3 @@
-export default function lerp(start, end, per) {
-  return (end - start) * per
+export default function lerp(t, a, b) {
+  return a + t * (b - a)
 }

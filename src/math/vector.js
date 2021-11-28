@@ -18,9 +18,11 @@ export default class Vector {
   get magnitude() {
     return Math.sqrt(this.x * this.x + this.y * this.y)
   }
-  get normalized() {
+  get normalize() {
     const mag = this.magnitude
-    return new Vector(this.x / mag, this.y / mag)
+    this.x = this.x / mag
+    this.y = this.y / mag
+    return this
   }
   get angle() {
     let angle = Math.atan2(this.y, this.x)
