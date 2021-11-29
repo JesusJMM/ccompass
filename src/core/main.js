@@ -7,6 +7,7 @@ class Ccompass {
   width = 0
   height = 0
   mouse = { x: 0, y: 0, click: false }
+  vertexOrigin = { x: null, y: null }
 
   /**
   * @argument {CanvasRenderingContext2D} ctx
@@ -93,8 +94,9 @@ class Ccompass {
     this.ctx.beginPath()
     this.ctx.moveTo(this.x + x1, this.y + y1)
     this.ctx.lineTo(this.x + x2, this.y + y2)
-    this.ctx.strokeStyle = this._stroke
-    this.ctx.stroke()
+    this.draw()
+    // this.ctx.strokeStyle = this._stroke
+    // this.ctx.stroke()
     this.ctx.closePath()
   }
   point(x, y) {
@@ -107,8 +109,14 @@ class Ccompass {
     this.ctx.closePath()
   }
   background(r, g, b) {
-    if (arguments.length === 1)
-      this.ctx.fillStyle = `rgb(${r},${r},${r})`
+    if (arguments.length === 1) {
+      if (typeof (r) == 'string') {
+        this.ctx.fillStyle = r
+      } else {
+
+        this.ctx.fillStyle = `rgb(${r},${r},${r})`
+      }
+    }
     else if (arguments.length === 2)
       this.ctx.fillStyle = `hsl(${r},${g}%, 50%)`
     else if (arguments.length === 3)
@@ -118,6 +126,29 @@ class Ccompass {
   }
   clear() {
     this.ctx.clearRect(0, 0, this.width, this.height)
+  }
+  // paths
+  beginShape() {
+    this.ctx.beginPath()
+  }
+  vertex(x, y) {
+    if (!this.vertexOrigin.x && !this.vertexOrigin.y) {
+      this.vertexOrigin.x = x
+      this.vertexOrigin.y = y
+      this.ctx.moveTo(this.x + x, this.y + y)
+      return
+    }
+    this.ctx.lineTo(this.x + x, this.y + y)
+  }
+  closeShape(s) {
+    this.vertexOrigin = { x: null, y: null }
+    if (s === 'close' || s === 'c' || s === 'C') {
+      this.ctx.closePath()
+      this.draw()
+      return
+    }
+    this.draw()
+    this.ctx.closePath()
   }
 }
 export default Ccompass

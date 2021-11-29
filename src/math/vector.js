@@ -6,8 +6,9 @@ export default class Vector {
     this.y = y
   }
   rotate(angle) {
-    this.x = Math.cos(angle) * this.x + Math.sin(angle) * this.y
-    this.y = Math.cos(angle) * this.y - Math.sin(angle) * this.x
+    const m = this.mag
+    this.x = m * Math.cos(angle)
+    this.y = m * Math.sin(angle)
     return this
   }
   invert() {
@@ -15,8 +16,11 @@ export default class Vector {
     this.y *= -1
     return this
   }
-  get magnitude() {
-    return Math.sqrt(this.x * this.x + this.y * this.y)
+  get mag() {
+    return Math.sqrt(this.magSq)
+  }
+  get magSq() {
+    return this.x * this.x + this.y * this.y
   }
   get normalize() {
     const mag = this.magnitude
@@ -32,6 +36,11 @@ export default class Vector {
     return angle
   }
   set(x, y) {
+    if (x instanceof Vector) {
+      this.x = x.x
+      this.y = x.y
+      return
+    }
     this.x = x
     this.y = y
   }
