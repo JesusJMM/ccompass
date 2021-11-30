@@ -79,4 +79,7 @@ export default class Vector {
     }
     return this.x * x + this.y * y
   }
+  copy(){
+    return new Vector(this.x, this.y)
+  }
 }
