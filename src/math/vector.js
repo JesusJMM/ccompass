@@ -22,8 +22,8 @@ export default class Vector {
   get magSq() {
     return this.x * this.x + this.y * this.y
   }
-  get normalize() {
-    const mag = this.magnitude
+  normalize() {
+    const mag = this.mag
     this.x = this.x / mag
     this.y = this.y / mag
     return this
@@ -68,7 +68,7 @@ export default class Vector {
     return this
   }
   setMagnitude(mg) {
-    const newVector = this.normalized.multiply(mg)
+    const newVector = this.normalize().multiply(mg)
     this.x = newVector.x
     this.y = newVector.y
     return this
