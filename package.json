@@ -1,14 +1,36 @@
 {
   "name": "ccompass",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "description": "A library for simplify the canvas api",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**"
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4"
+  },
   "scripts": {
-    "test": "live-server"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JesusJMM/ccompass.git"
   },
   "keywords": [
-    "canvas"
+    "canvas",
+    "graphics",
+    "frontend"
   ],
   "author": "Jesus Marcano",
-  "license": "ISC"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JesusJMM/ccompass/issues"
+  },
+  "homepage": "https://github.com/JesusJMM/ccompass#readme"
 }
